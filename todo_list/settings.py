@@ -112,15 +112,15 @@ WSGI_APPLICATION = 'todo_list.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASE_URL =  "postgres://koluchiy:ki8Zug33kNJfDPlclOQJHzTGVwGJCnlN@dpg-cm79h50cmk4c738sbg4g-a.oregon-postgres.render.com/todo_app_z0dz"#os.getenv('DATABASE_URL')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "moviesdb_392s",
-        'USER': "moviesdb_392s_user",
-        'PASSWORD': "qx9Wbd1SH9zUQJrIE8rBUgYanFe6CeS7",
-        'HOST': "dpg-cm6gpgen7f5s73d9kti0-a.oregon-postgres.render.com",
+        'NAME': "todo_app_z0dz",
+        'USER': "koluchiy",
+        'PASSWORD': "ki8Zug33kNJfDPlclOQJHzTGVwGJCnlN",
+        'HOST': "dpg-cm79h50cmk4c738sbg4g-a.oregon-postgres.render.com",
         'PORT': "5432",
     }
 }
