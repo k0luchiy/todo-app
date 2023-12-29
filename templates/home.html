@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container col-4 align-items-center ">
+        {% for todo in todos %}
+            <div class="card card-dark my-3">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3>{{todo.author.username}}</h3>
+                    <div class="">
+                        <button class="btn btn-outline-primary todo_update_btn" type="button" data-form-url="{% url 'todo_update' todo.pk %}">
+                            <i class="bi bi-pencil" style="width: 10px;"></i>
+                        </button>
+                        <button class="btn btn-outline-danger todo_delete_btn" type="button" data-form-url="{% url 'todo_delete' todo.pk %}">
+                            <i class="bi bi-trash" style="width: 10px;"></i>
+                        </button>
+                    </div> 
+                </div>
+                
+                <div class="card-body">
+                    <div class="card-title">
+                        <a class="card-link read_action" data-form-url="{% url 'todo_detail' todo.pk %}">{{ todo.title }}</a>
+                    </div>
+                    <div class="card-text">
+                        {{todo.action}}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-secondary">{{todo.creation_date}}</small>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="container col-4 align-items-center">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">first</a>
+                    <a href="?page={{page_obj.previous_page_number}}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{page_obj.paginator.num_pages }}
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{page_obj.next_page_number}}">next</a>
+                    <a href="?page={{page_obj.paginator.num_pages}}">last</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% load widget_tweaks %}
+
+<div class="modal-header">
+    <h3 class="modal-title">{{ todo.title }}</h3>
+    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true"></span>
+    </button>
+</div>
+
+
+<div class="modal-body">
+    {{ todo.action }}
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-bs-dismiss="modal">Ok</button>
+</div>
